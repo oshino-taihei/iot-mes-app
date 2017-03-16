@@ -14,22 +14,22 @@
     <h2 class="sub-header">Send to IoTCS</h2>
       <form action="/submit" method="post">
         <div class="form-group">
-          <label for="wip_order_number">wip_order_number</label>
+          <label for="wip_order_number">製造指示番号 - wip_order_number</label>
           <input type="text" class="form-control" id="wip_order_number" name="wip_order_number" style="width: 16em;">
 
-          <label for="wip_order_type">wip_order_type</label>
+          <label for="wip_order_type">製造指示タイプ - wip_order_type</label>
           <input type="number" min="1" max="28" class="form-control" id="wip_order_type" name="wip_order_type" style="width: 16em;">
 
-          <label for="opr_sequence_number">opr_sequence_number</label>
+          <label for="opr_sequence_number">工程番号 - opr_sequence_number</label>
           <input type="text" class="form-control" id="wip_order_number" name="opr_sequence_number" style="width: 16em;">
 
-          <label for="employee_number">employee_number</label>
+          <label for="employee_number">従業員番号 - employee_number</label>
           <input type="text" class="form-control" id="employee_number" name="employee_number" style="width: 16em;">
 
-          <label for="equipment_name">equipment_name</label>
+          <label for="equipment_name">使用設備名 - equipment_name</label>
           <input type="text" class="form-control" id="equipment_name" name="equipment_name" style="width: 16em;">
 
-          <label for="successful_quantity">successful_quantity</label>
+          <label for="successful_quantity">実績数量 - successful_quantity</label>
           <input type="number" min="0" class="form-control" id="successful_quantity" name="successful_quantity" style="width: 16em;">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
