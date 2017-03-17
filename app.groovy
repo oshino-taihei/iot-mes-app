@@ -1,3 +1,6 @@
+@Grab('spring-boot-starter-thymeleaf')
+@Grab(group='com.oracle.iot', module='device-library', version='1.0')
+@Grab(group='com.oracle.iot', module='json-20160212', version='1.0')
 import com.oracle.iot.client.*
 import com.oracle.iot.client.device.*
 import com.oracle.iot.client.message.*
@@ -12,14 +15,12 @@ class IoTMesApp {
     private static final String PROVISIONING_FILE_PASS = "PYBSq85bwlIlh2vF";
 
     @RequestMapping("/")
-    @ResponseBody
     String home() {
-      def binding = ['dummy':'dummy']
-      render('home', binding)
+      "home"
     }
+
     @RequestMapping("/submit")
     String submit(@RequestParam Map<String, String> params) {
-      logger.info("make a message. params=${params}")
       DirectlyConnectedDevice device = new DirectlyConnectedDevice(PROVISIONING_FILE_PATH, PROVISIONING_FILE_PASS);
       if (!device.isActivated()) {
         device.activate(URN_DEVICE);
@@ -31,12 +32,5 @@ class IoTMesApp {
       device.close()
       logger.info("finished sending the message. params=${params}")
       "redirect:/"
-    }
-
-    private String render(String templateName, binding) {
-      def f = new File("view/${templateName}.template")
-      def engine = new groovy.text.SimpleTemplateEngine()
-      def template = engine.createTemplate(f).make(binding)
-      template.toString()
     }
 }
